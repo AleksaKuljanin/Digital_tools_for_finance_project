@@ -3,7 +3,7 @@ Momentum Strategy with US stocks - Testing different lookback periods
 
 We are conducting a project to assess the effectiveness of various lookback periods in a momentum strategy targeting S&P 500 equities. The goal is to identify the optimal historical timeframes that enhance strategy performance and improve trading signals by analyzing past price trends.
 
-We are testing both a long-short and a long-only strategy, with the number of stocks in each portfolio remaining constant. Stock selection is based on their recent performance, which varies according to the lookback period being tested. In the long-short strategy, we will take short positions in stocks with the worst performance and long positions in those with the best performance. In both strategies, stocks are equally weighted. The initial net exposure for the long-only portfolio will be 100%, while the long-short portfolio will maintain a initial net exposure of 0%.
+We are testing both a long-short and a long-only strategy, with the number of stocks in each portfolio remaining constant. Stock selection is based on their recent performance, which varies according to the lookback period being tested. In the long-short strategy, we will take short positions in stocks with the worst performance and long positions in those with the best performance. In both strategies, stocks are equally weighted. The exposure for the long-only portfolio will be 100%, while the long-short portfolio will maintain a initial net exposure of 0%. 
 
 Data basis:
 - Data source: Bloomberg
