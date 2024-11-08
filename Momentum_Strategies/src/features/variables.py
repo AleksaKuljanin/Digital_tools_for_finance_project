@@ -1,0 +1,5 @@
+path_stock_prices = '..//data//interim//monthly_stock_prices'
+path_stock_returns_signal = '..//data//processed//stock_returns_signal'
+path_stock_returns_holding_period = '..//data//processed//stock_returns_holding_period'
+path_stock_weights = '..//data//processed//stock_weights'
+path_portfolio_performances = '..//data//processed//portfolio_performances'
