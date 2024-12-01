@@ -40,8 +40,8 @@ def stock_signal_calculation_long_short(row, n: float):
     binary_row = pd.Series(0.0, index=row.index)
     top_performers = row.nsmallest(n_long).index
     worst_performers = row.nlargest(n_short).index
-    binary_row[top_performers] = 1.0 / n_short
-    binary_row[worst_performers] = -1.0 / n_long
+    binary_row[top_performers] = 1.0 / n_long
+    binary_row[worst_performers] = -1.0 / n_short
     return binary_row
 
 
