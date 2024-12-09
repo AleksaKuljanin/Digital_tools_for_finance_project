@@ -3,12 +3,12 @@ Momentum Strategy with US stocks - Testing different lookback periods
 
 # Table of Contents
 - [Project Overview](#project-overview)
--   [Introduction](#introduction)
--   [Data Basis](#data-basis)
+    - [Introduction](#introduction)
+    - [Data Basis](#data-basis)
 - [Project Organization](#project-organization)
 - [How to reproduce this project?](#how-to-reproduce-this-project)
--   [Using Docker](#using-docker)
--   [Using Anaconda environments](#using-anaconda-environments)
+    - [Using Docker](#using-docker)
+    - [Using Anaconda environments](#using-anaconda-environments)
 
 ## Project overview
 ### Introduction
