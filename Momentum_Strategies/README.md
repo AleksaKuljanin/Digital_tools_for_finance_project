@@ -1,18 +1,30 @@
-Momentum Strategy with US stocks - Testing different lookback periods
+Momentum Strategy with US stocks
+Testing different lookback periods
 ==============================
 
+# Table of Contents
+- [Project Overview](#project-overview)
+- [Introduction](#introduction)
+- [Data Basis](#data-basis)
+- [Project Organization](#project-organization)
+- [How to reproduce this project?](#how-to-reproduce-this-project)
+- [Using Docker](#using-docker)
+- [Using Anaconda environments](#using-anaconda-environments)
+
+## Project overview
+### Introduction
 We are conducting a project to assess the effectiveness of various lookback periods in a momentum strategy targeting S&P 500 equities. The goal is to identify the optimal historical timeframes that enhance strategy performance and improve trading signals by analyzing past price trends.
 
 We are testing both a long-short and a long-only strategy, with the number of stocks in each portfolio remaining constant. Stock selection is based on their recent performance, which varies according to the lookback period being tested. In the long-short strategy, we will take short positions in stocks with the worst performance and long positions in those with the best performance. In both strategies, stocks are equally weighted. The exposure for the long-only portfolio will be 100%, while the long-short portfolio will maintain a initial net exposure of 0%. 
 
-Data basis:
+### Data basis
 - Data source: Bloomberg
 - S&P 100 stocks
 - Monthly price data
 - Historical data from July 2014 to July 2024
 
 
-Project Organization
+## Project Organization
 ------------
 
     ├── LICENSE
@@ -59,6 +71,14 @@ Project Organization
     │       └── visualize.py
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+
+## How to reproduce this project?
+
+### Using Docker
+
+### Using Anaconda environments
+
+
 
 
 --------
