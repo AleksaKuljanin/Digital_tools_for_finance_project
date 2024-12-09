@@ -26,7 +26,7 @@ def signal_calculation(lookback_periods, number_of_positions, holding_period, lo
         portfolio_performance(lookback, last_lookback_period, number_of_positions, holding_period, long_only)
 
 # long only signal & weights
-def stock_signal_calculation_long_only(row, n):
+def stock_signal_calculation_long_only(row, n):  
     binary_row = pd.Series(0, index=row.index)
     top_performers = row.nlargest(n).index
     binary_row = pd.Series(0.0, index=row.index)
@@ -40,8 +40,8 @@ def stock_signal_calculation_long_short(row, n: float):
     binary_row = pd.Series(0.0, index=row.index)
     top_performers = row.nsmallest(n_long).index
     worst_performers = row.nlargest(n_short).index
-    binary_row[top_performers] = 1.0 / n_long
-    binary_row[worst_performers] = -1.0 / n_short
+    binary_row[top_performers] = 1.0 / n_short
+    binary_row[worst_performers] = -1.0 / n_long
     return binary_row
 
 
