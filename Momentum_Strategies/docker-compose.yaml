@@ -1,0 +1,19 @@
+services:
+  jupyter: 
+    build: ./docker_jupyter
+    container_name: docker-jupyter
+    ports:
+      - 8888:8888
+    volumes:
+      - ./data/:/Momentum_Strategies/data/
+      - ./notebooks/:/Momentum_Strategies/notebooks/
+      - ./reports/:/Momentum_Strategies/reports/
+      - ./src/:/Momentum_Strategies/src/
+  tex:
+    build: ./docker_tex
+    container_name: docker-tex
+    volumes:
+      - ./data/:/Momentum_Strategies/data/
+      - ./reports/:/Momentum_Strategies/reports/
+      - ./src/:/Momentum_Strategies/src/
+    command: ["latexmk", "-pdf", "-output-directory=/Momentum_Strategies/reports/output/", "/Momentum_Strategies/reports/main.tex"]
