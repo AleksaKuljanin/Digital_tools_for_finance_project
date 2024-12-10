@@ -78,7 +78,7 @@ With the following instructions this project is fully reproducible using Docker.
 We assume that the needed software (especially an IDE and Docker) is already installed on your machine.
 1. Using a terminal of your choice 'clone' the git repository to your roots folder.
     'git clone PathToGitRepository'
-2. Within the temrinal navigate to the folder "Momentum Strategies" using 'cd'
+2. Within the terminal navigate to the folder "Momentum Strategies" using 'cd'
 3. Start the docker-decompose file using 'docker-decompose up --build'
 4. The docker image will be loaded and the containers are running.
 5. The docker-tex container will create the resulting PDF-File from the main.tex file.
