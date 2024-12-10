@@ -74,6 +74,17 @@ We are testing both a long-short and a long-only strategy, with the number of st
 ## How to reproduce this project?
 
 ### Using Docker
+With the following instructions this project is fully reproducible using Docker.
+We assume that the needed software (especially an IDE and Docker) is already installed on your machine.
+1. Using a terminal of your choice 'clone' the git repository to your roots folder.
+    'git clone PathToGitRepository'
+2. Within the temrinal navigate to the folder "Momentum Strategies" using 'cd'
+3. Start the docker-decompose file using 'docker-decompose up --build'
+4. The docker image will be loaded and the containers are running.
+5. The docker-tex container will create the resulting PDF-File from the main.tex file.
+6. The docker-jupyter container is accessible through your webbrwoser of choice. The exact localhost URL will be provided within the terminal.
+7. Open the localhost URL within your webbrowser. 
+8. All the necessary data, python and jupyter notebook files are accessible and runnable within this jupyter container.
 
 ### Using Anaconda environments
 
