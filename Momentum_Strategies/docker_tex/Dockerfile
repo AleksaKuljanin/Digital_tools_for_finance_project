@@ -2,7 +2,7 @@
 FROM texlive/texlive:latest
 
 # Set the working directory
-WORKDIR /reports
+WORKDIR /Momentum_Strategies/reports
 
 RUN tlmgr update --self && tlmgr install \
     latexmk \
@@ -11,4 +11,4 @@ RUN tlmgr update --self && tlmgr install \
     latex
 
 # Compile tex document
-CMD ["latexmk", "-pdf", "output-directory=/Momentum_Strategies/reports/output/", "Momentum_Strategies/reports/main.tex"]
+CMD ["latexmk", "-pdf", "output-directory=/output/", "/Tex/Paper.tex"]

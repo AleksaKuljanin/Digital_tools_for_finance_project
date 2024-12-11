@@ -15,5 +15,10 @@ services:
     volumes:
       - ./data/:/Momentum_Strategies/data/
       - ./reports/:/Momentum_Strategies/reports/
+      - ./reports/Graphics:/Momentum_Strategies/reports/Graphics
+      - ./reports/styles:/Momentum_Strategies/reports/styles
+      - ./reports/Tex:/Momentum_Strategies/reports/Tex
+      - ./reports/output:/Momentum_Strategies/reports/output
       - ./src/:/Momentum_Strategies/src/
-    command: ["latexmk", "-pdf", "-output-directory=/Momentum_Strategies/reports/output/", "/Momentum_Strategies/reports/main.tex"]
+    command: ["latexmk", "-pdf", "-output-directory=/Momentum_Strategies/reports/output/", "/Momentum_Strategies/reports/Tex/Paper.tex", "/Momentum_Strategies/reports/Tex/Presentation.tex"]
+
