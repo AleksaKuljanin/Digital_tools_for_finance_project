@@ -7,7 +7,6 @@ Momentum Strategy with US stocks - Testing different lookback periods
     - [Introduction](#introduction)
     - [Methodology](#methodology)
     - [Data Basis](#data-basis)
-    - [Findings](#findings)
 - [Project Organization](#project-organization)
 - [How to reproduce this project?](#how-to-reproduce-this-project)
     - [Using Docker](#using-docker)
@@ -23,9 +22,6 @@ We are conducting a project to assess the effectiveness of various lookback peri
 ### Methodology
 
 We are testing both a long-short and a long-only strategy, with the number of stocks in each portfolio remaining constant. Stock selection is based on their recent performance, which varies according to the lookback period being tested. In the long-short strategy, we will take short positions in stocks with the worst performance and long positions in those with the best performance. In both strategies, stocks are equally weighted. The exposure for the long-only portfolio will be 100%, while the long-short portfolio will maintain a initial net exposure of 0%. In cases where the number of holdings is uneven, there will be one more long position than short positions. For example, with five holdings, there would be three long positions and two short positions.
-
-### Findings
-
 
 
 ### Data basis
@@ -60,11 +56,11 @@ We are testing both a long-short and a long-only strategy, with the number of st
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
     │                         generated with `pip freeze > requirements.txt`
     │
-    ├── src                <- Source code for use in this project.
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │
-    │   └── features       <- Scripts to turn raw data into features
+    └── src                <- Source code for use in this project.
+        │
+        ├── data           <- Scripts to download or generate data
+        │
+        └── features       <- Scripts to turn raw data into features
 
     
 
