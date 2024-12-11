@@ -1,0 +1,153 @@
+\documentclass[11pt,a4paper,english,oneside]{book}
+
+%----------------------------------------------------------------------------------------
+% THESIS SETTINGS - ADAPT
+%----------------------------------------------------------------------------------------
+% Depending on your program, (un)comment the following lines
+
+% Are you in the Quant finance program?
+\newif\ifQF % default behaviour is false, so NOT in QF - always leave uncommented!
+% \QFtrue % Uncomment if you are in the QF program, if not leave it out
+
+% Pick One option
+\newcommand{\thesis}{Momentum Anaylsis}
+% \newcommand{\thesis}{Master}
+
+
+\input{Tex/preamble_paper} % CHECK OUT the preamble.tex file and adapt the necessary parts (use CTRL+f and look for "ADAPT"))
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+% Title
+%----------------------------------------------------------------------------------------
+\thispagestyle{empty}
+\titleGP\
+
+\newpage
+
+\doublespacing\
+\setcounter{page}{1}
+\pagenumbering{Roman}
+
+%----------------------------------------------------------------------------------------
+% Abstract
+%----------------------------------------------------------------------------------------
+\section*{Abstract}
+In order to identify the best time frame for capturing market trends while reducing noise and maximizing risk-adjusted returns, this study looks at the ideal lookback period for using momentum techniques on S\&P 100 equities. Applying a dual strategy approach—a long-only strategy and a long-short strategy—to historical monthly price data of S\&P 100 companies from July 2014 to July 2024, we investigate various lookback periods, including 1, 3, 6, and 12 months. With a Sharpe ratio of 6.40, which indicates greater risk-adjusted returns, our results, which are emphasized by the Sharpe ratio computations, demonstrate that the three-month look-back period performs noticeably better than the other durations. This time frame successfully strikes a balance between the robustness required to prevent the market noise that is common in shorter look-back periods and sensitivity to recent market developments. The findings offer insightful information to investors and portfolio managers, indicating that momentum strategies in stock markets can perform best with a moderate look-back period, especially when there is noticeable trend patterns and moderate market volatility.
+\newpage
+\pagenumbering{arabic}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\newpage
+\pagenumbering{arabic}
+
+
+%----------------------------------------------------------------------------------------
+% MAIN CHAPTERS
+%----------------------------------------------------------------------------------------
+
+
+%--------------------
+% CHAPTER 1
+%--------------------
+
+
+\chapter{Introduction}
+In the financial markets, momentum investing is a well-researched phenomena where investors profit from the enduring patterns in asset prices. Momentum strategies look for securities that have historically performed well (winners) and those that have underperformed (losers) in order to acquire winners and sell losers in an effort to produce excess returns. The selection of the lookback period—the time frame utilized to assess previous performance—is a crucial component of these tactics.
+The application of momentum methods to the S\&P 500, which represents a wide range of U.S. industry equities, is the focus of this study. Finding the ideal lookback period for these portfolios while weighing the trade-off between avoiding noise or overfitting and capturing significant price movements is the main question.
+This study attempts to identify the lookback period that has historically produced the best risk-adjusted returns by carefully examining historical data. The results will give portfolio managers useful information and provide insight into the fundamental factors influencing momentum profits in the US market by recognizing how momentum dynamics vary by industry.
+
+\chapter{The Emergence of Momentum Strategies}
+\label{sec: Momentum Phenomena}
+This chapter provides insight into the emergence of the momentum strategy by focusing on theoretical concepts discussed in literature. 
+
+\section{Efficient Market Hypothesis (EMH)}
+The EMH, initially put forth by Eugene Fama in 1970, is a cornerstone of contemporary finance. Financial markets are "information efficient," according to this idea, which means that asset prices fairly represent all available information. Any investor should find it challenging to consistently generate returns beyond the average risk-adjusted market returns since fresh information is instantly included into pricing.
+The efficient market hypothesis (EMH) can be broadly divided into three types, each of which describes a distinct level of market efficiency. The first is the weak form, which makes the assumption that all past price and volume data are accurately reflected in current market pricing. Therefore, it is believed that technical analysis, which forecasts future movements based on historical price trends and trade volumes, is unsuccessful in producing spectacular results under this form. The concept of market efficiency is expanded to include all publicly available information in the second, semi-strong form. This includes financial statements, company announcements, and press releases. According to this model, since asset prices already account for this information, fundamental analysis—which evaluates a company's financial and economic data to ascertain its actual value—is unlikely to produce larger returns. The strong type of market efficiency, which holds that all information—public and private, including insider knowledge—is fully reflected in current market prices, is the strictest level. Because the market is assumed to be fully efficient under this form, no investor—regardless of access to privileged information—can regularly generate abnormal profits \parencite{fama1970efficient}. 
+Despite the hypothesis's theoretical appeal, many anomalies cast doubt on its premises. Momentum is one example of an anomaly that defies the weak version of the EMH by showing that historical price trends can be used to forecast future performance. Other explanations for these oddities come from behavioral finance theories, which imply that markets aren't always logical. Examples of these theories include investor overreaction and underreaction.
+The EMH is directly challenged by momentum methods, especially when it is in its semi-strong version. According to research by scholars such as \cite{jegadeesh1993returns}, equities that have historically performed well typically outperform in the short to medium term, indicating that markets may not be entirely efficient. A "Adaptive Market Hypothesis," which incorporates aspects of market efficiency with behavioral biases and changing market conditions, is also put out by research such as \cite{lo2004adaptive}.
+
+\section{Relative Strength Strategies}
+Investment techniques known as "relative strength strategies" concentrate on how well a particular security performs in relation to other securities in the same market. By ranking assets according to their historical returns, these techniques short sell or avoid underperforming assets while investing in those that have fared the best.
+\cite{jegadeesh1993returns} formalized the idea of relative strength by demonstrating that stocks that have produced strong returns over the last three to twelve months also typically outperform over the next three to twelve months. The weak form of the EMH, which holds that historical price data is already represented in current prices and cannot forecast future performance, is obviously broken by this phenomena, which is referred to as "Momentum".
+Both investor overreaction and underreaction are behavioral explanations for the effectiveness of relative strength methods. Underreaction happens when markets are sluggish to take in new information, allowing patterns to continue over time, whereas overreaction happens when overconfident investors push prices too far in the direction of recent trends.
+Relative strength tactics are frequently employed in equities markets, where sector- or industry-specific trends frequently exhibit notable persistence. Usually, these tactics are put into practice by building a portfolio that is short the bottom decile of performers and long the top decile. To make sure the portfolio captures changing trends as they appear, regular rebalancing is necessary \parencite{grinblatt1989mutual}.
+Relative strength methods include some risk even if they have the potential to yield large rewards. Since momentum-driven portfolios typically perform poorly during abrupt corrections, they are especially susceptible during market reversals. Furthermore, these techniques' high turnover may result in high transaction costs and market frictions, which could reduce their overall profitability.
+
+\section{Cross-Sectional Momentum}
+One well-known financial tactic that emphasizes the relative performance of various assets is cross-sectional momentum. The fundamental idea is that assets that have done better than their peers are probably going to keep doing so, while assets that have fared worse are probably going to stay poor. Behavioral finance theories, which contend that investors' responses to historical data can produce enduring patterns, serve as the foundation for this idea.
+Cross-sectional momentum's comparative methodology sets it apart from tactics like time-series momentum. Instead than concentrating on the past performance of a single asset, cross-sectional momentum assesses a collection of assets to determine which ones are relatively strong. According to research by \cite{jegadeesh1993returns}, this system works well in a variety of market situations.
+This technique is put into practice by methodically ranking assets according to their historical returns, usually over a three- to twelve-month period. The best performers are bought by investors, while the worst are shorted. To stay in line with the approach, portfolios are usually rebalanced every month or every three months. When evaluating performance, key indicators including recent returns and risk-adjusted measurements like the Sharpe ratio are essential \parencite{fama1996multifactor}. 
+Since cross-sectional momentum frequently incorporates a large range of assets, one of its main advantages is the possibility of diversification. Additionally, this method can capture excess returns that might not be seen in traditional models by taking advantage of market anomalies \parencite{moskowitz2012time}. But there are significant obstacles. Frequent buying and selling can result in substantial transaction costs, and the technique may be vulnerable to sudden market reversals. Additionally, over-fitting historical data carries the danger of producing inaccurate results \parencite{barroso2015momentum}. Although its performance might vary greatly depending on the state of the market, empirical data indicates that cross-sectional momentum has proven beneficial across several markets and asset classes \parencite{asness2013value}. This tactic deftly capitalizes on behavioral biases and market inefficiencies. To control the inherent risks and capitalize on changes in relative asset performance, successful implementation necessitates careful management and continual modification.
+In conclusion, cross-sectional momentum is a powerful tool for generating returns, but it necessitates constant monitoring and tactical adjustment. To fully realize the potential of this technique in the always changing financial landscape, investors must continue to be aware of market dynamics.
+
+%--------------------
+% CHAPTER 3
+%--------------------
+
+\chapter{Methodology \& Data}
+In our analysis, we apply momentum techniques to the S\&P 100 equities in order to determine the ideal look-back period. Bloomberg provided the data for our analysis, which included the S\&P 100 index's monthly returns from July 2014 to July 2024. A variety of market scenarios are covered throughout the course of these 10 years, giving our methods a stable testing environment.
+
+We employ a long-only strategy and a long-short strategy, two distinct momentum approaches. With the long-only strategy, we rank stocks monthly according to their historical returns over 1, 3, 6, and 12 months of predetermined lookback periods. Based on these rankings, we choose the top ten stocks and hold them for the entire next month. In contrast, the long-short strategy involves shorting the lowest 10 companies and longing the top 10 equities based on historical performance over the same lookback periods. With this strategy, a balanced portfolio with no initial net exposure is maintained.
+
+Position sizing is essential for both strategies in order to guarantee comparability and consistency. The long-only strategy reflects a consistent investment approach by giving each chosen stock an equal weight of 10\%. By giving each stock in the long and short positions a weight of ±10\%, the long-short strategy balances the portfolio's net exposure and enables a sole focus on the effectiveness of the momentum signal.
+
+The Sharpe ratio is our main statistic for assessing how well certain strategies perform across various lookback periods. This ratio, which gives information about the strategies' risk-adjusted returns, is computed for every portfolio creation date. Our goal is to determine which lookback period regularly produces the highest risk-adjusted returns by computing and comparing the Sharpe ratios for each era.
+
+According to the approach criteria based on the performance data from the chosen look-back periods, stock rankings and portfolio rebalancing are carried out monthly during our study. We can ascertain the ideal period of time to apply a momentum strategy in the S\&P 100 Index thanks to this methodical application and assessment.
+
+
+%--------------------
+% CHAPTER 4
+%--------------------
+
+\chapter{Findings}
+\section{Results}
+\begin{figure}[h] % The [h] here means to try to place the figure here
+    \centering
+    \includegraphics[width=0.8\textwidth]{Graphics/output1.png}
+    \caption[Sharpe Ratios]{These are the resulting Sharpe Ratios of of our Analysis}
+    \label{fig:my_label}
+\end{figure}
+
+\begin{figure}[h] % The [h] here means to try to place the figure here
+    \centering
+    \includegraphics[width=0.8\textwidth]{Graphics/output2.png}
+    \caption[Cumulative Returns]{These are the resulting cumulative returns of for the best parameter set analyzed.}
+    \label{fig:my_label}
+\end{figure}
+
+\begin{figure}[h] % The [h] here means to try to place the figure here
+    \centering
+    \includegraphics[width=0.8\textwidth]{Graphics/output3.png}
+    \caption[Return Distribution]{This is the return distribution for the best parameter set analyzed.}
+    \label{fig:my_label}
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\caption{Quantitative Summary}
+\begin{tabular}{|c|c|c|c|c|} % alignment of each column data
+\hline % horizontal line
+\textbf{Lookback Periods} & \textbf{Number of Positions} & \textbf{Holding Period} & \textbf{long only} & \textbf{Sharpe Ratio} \\ % header row
+\hline
+1, 2, 3, 4, 5, 6 & 5 & 12 & False & 8.96 \\
+1, 2, 3, 4, 5, 6 & 5 & 12 & True & 8.96\\
+1, 2, 3, 4 & 5 & 12 & False & 8.73\\
+1, 2, 3, 4 & 5 & 12 & True & 8.73\\
+1, 2, 3 & 5 & 12 & True & 8.61\\
+1, 2, 3 & 5 & 12 & False & 8.61\\
+1, 2, 3, 4, 5, 6 & 10 & 12 & False & 7.60\\
+1, 2, 3, 4, 5, 6 & 10 & 12 & True & 7.60\\
+1, 2, 3, 4 & 10 & 12 & True & 7.34\\
+1, 2, 3, 4 & 10 & 12 & False & 7.34\\
+\hline
+\end{tabular}
+\end{table}
+
+\printbibliography
+\end{document}
