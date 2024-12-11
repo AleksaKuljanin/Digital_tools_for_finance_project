@@ -9,9 +9,9 @@ services:
       - ./notebooks/:/Momentum_Strategies/notebooks/
       - ./reports/:/Momentum_Strategies/reports/
       - ./src/:/Momentum_Strategies/src/
-  tex:
-    build: ./docker_tex
-    container_name: docker-tex
+  tex-paper:
+    build: ./docker_tex_Paper
+    container_name: docker-tex-paper
     volumes:
       - ./data/:/Momentum_Strategies/data/
       - ./reports/:/Momentum_Strategies/reports/
@@ -20,5 +20,18 @@ services:
       - ./reports/Tex:/Momentum_Strategies/reports/Tex
       - ./reports/output:/Momentum_Strategies/reports/output
       - ./src/:/Momentum_Strategies/src/
-    command: ["latexmk", "-pdf", "-output-directory=/Momentum_Strategies/reports/output/", "/Momentum_Strategies/reports/Tex/Paper.tex", "/Momentum_Strategies/reports/Tex/Presentation.tex"]
+    command: ["latexmk", "-pdf", "-output-directory=/Momentum_Strategies/reports/output/", "/Momentum_Strategies/reports/Tex/Paper.tex"]
+  tex-presentation:
+    build: ./docker_tex_Presentation
+    container_name: docker-tex-presentation
+    volumes:
+      - ./data/:/Momentum_Strategies/data/
+      - ./reports/:/Momentum_Strategies/reports/
+      - ./reports/Graphics:/Momentum_Strategies/reports/Graphics
+      - ./reports/styles:/Momentum_Strategies/reports/styles
+      - ./reports/Tex:/Momentum_Strategies/reports/Tex
+      - ./reports/output:/Momentum_Strategies/reports/output
+      - ./src/:/Momentum_Strategies/src/
+    command: ["latexmk", "-pdf", "-output-directory=/Momentum_Strategies/reports/output/", "/Momentum_Strategies/reports/Tex/Presentation.tex"]
+  
 
