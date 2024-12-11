@@ -1,0 +1,47 @@
+% preamble.tex
+\documentclass{beamer}
+\usetheme{Dresden}
+
+% Packages
+\usepackage[utf8]{inputenc} % Handling UTF-8 text
+\usepackage[T1]{fontenc}    % Font encoding
+
+%  REFERENCING
+% BIBLIOGRAPHY - BIBTEX
+\usepackage[sort,round]{natbib} %For the bibliography.
+\bibliographystyle{abbrvnat} %Reference style.
+
+% BIBLIOGRAPHY - BIBLATEX
+\usepackage[
+backend=biber,
+style=apa,
+bibstyle=authoryear,
+citestyle=authoryear,
+maxcitenames=2,
+maxbibnames=99
+]{biblatex}
+
+\setlength\bibitemsep{1\itemsep} % spacing between entries in references
+\addbibresource{references.bib} % .bib file
+
+
+\usepackage{hyperref} %Must be loaded at the end.
+\hypersetup{ %Setup of the reference links.
+     colorlinks=false,
+     linkcolor=black,
+     citecolor=black,
+     filecolor=black,
+     urlcolor=black
+}
+
+\usepackage[nameinlink,capitalize]{cleveref} %For the command \cref, load after hyperref.
+
+% Title and other information for the title page
+\title{Your Presentation Title}
+\author{Group Name}
+\date{\today}
+\institute{Your University or Organization}
+
+% Define custom macros for consistency and convenience
+\newcommand{\GroupName}{Avduli, Müller, Kuljanin, Sherifi}
+\newcommand{\Topic}{Momentum Investing}
